@@ -1,7 +1,7 @@
 #ifndef GAME_H
 #define GAME_H
-#include ".\Characters\Character.h"
-#include <memory>
+//#include ".\Characters\Character.h"
+#include <vector>
 
 namespace mtm
 {
@@ -9,10 +9,12 @@ namespace mtm
     {
         //std::shared_ptr<Character> game_board; //**** probably we will use this.... ****
 
-        Character** game_board; //maybe change to std::share_ptr...
+        //Character** game_board; //maybe change to std::share_ptr...
 
         public:
-            Game(int height, int width); //constructor.
+            Game(int height, int width);
+
+
             ~Game();
             Game(const Game& other);
             Game& operator=(const Game& other);

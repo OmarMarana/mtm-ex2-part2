@@ -18,6 +18,8 @@ namespace mtm {
     struct GridPoint {
         int row, col;
 
+        // GridPoint() = default;
+        
         GridPoint(int row, int col) : row(row), col(col) {}
 
         GridPoint(const GridPoint &other) = default;
