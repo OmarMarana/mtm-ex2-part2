@@ -5,8 +5,11 @@ namespace mtm
     class Excpections: public std::exception
     {
         public:
-            class ileegalCell1;
+            class IllegalCell{};
             class OutOfAmmo{};
+            class OutOfRange{};
+            class IllegalTarget{};
+
     };
 
     
