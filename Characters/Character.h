@@ -17,7 +17,7 @@ namespace mtm
 
             virtual bool checkMoveLegal(GridPoint location ,GridPoint dest) const = 0;
             virtual bool checkAttackLegal(GridPoint location, GridPoint dest, std::shared_ptr<Character> dest_character) const = 0;
-
+    	
             
             virtual void reloadCharacter() = 0;
             virtual char getOutPutSymbol() const = 0;
