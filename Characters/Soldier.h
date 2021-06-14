@@ -15,11 +15,17 @@ namespace mtm
             Soldier(Team team, units_t health, units_t ammo, units_t att_range, units_t power);
             ~Soldier() override;
 
-            bool checkMoveLegal(GridPoint location ,GridPoint dest) const override;
-            bool checkAttackLegal(GridPoint location, GridPoint dest, std::shared_ptr<Character> dest_character) const override;
+            bool checkMoveLegal(const GridPoint& location , const GridPoint& dest) const override;
 
+            bool checkAttackLegal(const GridPoint& location, const GridPoint& dest,
+                                  const std::shared_ptr<Character>& dest_character) const override;
+
+            void attack(const GridPoint& location, const GridPoint& dest, 
+                        std::vector<std::vector<std::shared_ptr<Character>>> & game_board) override;
+            
             void reloadCharacter() override;
-            char getOutPutSymbol() override;
+
+            char getOutPutSymbol() const override;
 
         private:
             /* private functions for logics for soldier class...*/

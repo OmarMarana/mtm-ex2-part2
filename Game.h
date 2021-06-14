@@ -1,7 +1,6 @@
 #ifndef GAME_H
 #define GAME_H
-//#include ".\Characters\Character.h"
-#include <vector>
+#include ".\Characters\Character.h"
 
 namespace mtm
 {

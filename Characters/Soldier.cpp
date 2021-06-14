@@ -20,18 +20,35 @@ namespace mtm
     {
     }
 
-    bool Soldier::checkMoveLegal(GridPoint location ,GridPoint dest) const
+    bool Soldier::checkMoveLegal(const GridPoint& location , const GridPoint& dest) const
     {
         return ( GridPoint::distance(location, dest) <= mov_range );
     }
 
-    bool Soldier::checkAttackLegal(GridPoint location, GridPoint dest, std::shared_ptr<Character> dest_character) const
+    bool Soldier::checkAttackLegal(const GridPoint& location, const GridPoint& dest,
+                                   const std::shared_ptr<Character>& dest_character) const
     {
-        if( (dest.col != location.col && dest.row != location.row))
+        /* check same line and range*/
+        if( (dest.col != location.col && dest.row != location.row) ||
+            GridPoint::distance(location, dest) > att_range)
         {
-            throw Excpections::OutOfAmmo();
+            throw Exception::OutOfRange();
         }
-        return false;
+
+        
+        if(ammo < att_cost)
+        {
+            throw Exception::OutOfAmmo();
+        }
+
+        return true;
+    }
+
+    void attack(const GridPoint& location, const GridPoint& dest, 
+            std::vector<std::vector<std::shared_ptr<Character>>> & game_board)
+    {
+        //todo: execute the attack.
+        //check if any enemy died from the attack, and remove the dead.
     }
 
     void Soldier::reloadCharacter()
@@ -39,8 +56,8 @@ namespace mtm
         ammo += reload;
     }
 
-    char Soldier::getOutPutSymbol()
+    char Soldier::getOutPutSymbol() const
     {
-        return 'S';
+        return (team == POWERLIFTERS) ? 'S' : 's';
     }
 }
