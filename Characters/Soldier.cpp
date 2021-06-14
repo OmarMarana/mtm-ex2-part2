@@ -10,9 +10,6 @@ namespace mtm
         this->att_range = att_range;
         this->power = power;
 
-        this->reload = RELOAD;
-        this->mov_range = MOV_RANGE;
-        this->att_cost = ATT_COST;
     }
 
 
@@ -22,7 +19,7 @@ namespace mtm
 
     bool Soldier::checkMoveLegal(const GridPoint& location , const GridPoint& dest) const
     {
-        return ( GridPoint::distance(location, dest) <= mov_range );
+        return ( GridPoint::distance(location, dest) <= MOV_RANGE );
     }
 
     bool Soldier::checkAttackLegal(const GridPoint& location, const GridPoint& dest,
@@ -36,7 +33,7 @@ namespace mtm
         }
 
 
-        if(ammo < att_cost)
+        if(ammo < ATT_COST)
         {
             throw Exception::OutOfAmmo();
         }
@@ -48,7 +45,7 @@ namespace mtm
                          std::vector<std::vector<std::shared_ptr<Character>>> & game_board)
     {
 
-        ammo -= att_cost;
+        ammo -= ATT_COST;
         std::shared_ptr<Character> dest_character = game_board[dest.row][dest.col];
         
         if(dest_character != nullptr && team != dest_character->team)
@@ -64,7 +61,7 @@ namespace mtm
 
     void Soldier::reloadCharacter()
     {
-        ammo += reload;
+        ammo += RELOAD;
     }
 
     char Soldier::getOutPutSymbol() const
