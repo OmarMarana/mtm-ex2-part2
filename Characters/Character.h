@@ -2,7 +2,7 @@
 #define CHARACTER_H
 #include "../Auxiliaries.h"
 #include "../Functions.h"
-#include "../Excpections.h"
+#include "../Exception.h"
 #include <memory>
 #include <vector>
 
@@ -16,17 +16,19 @@ namespace mtm
             int mov_range, reload, att_cost;
             Team team;
 
-            virtual bool checkMoveLegal(GridPoint location ,GridPoint dest) const = 0;
-            virtual bool checkAttackLegal(GridPoint location, GridPoint dest, std::shared_ptr<Character> dest_character) const = 0;
-            virtual void attack(GridPoint location, GridPoint dest, 
-                                std::vector<std::vector<std::shared_ptr<Character>>> & game_board);
+            virtual bool checkMoveLegal(const GridPoint& location , const GridPoint& dest) const = 0;
+            
+            virtual bool checkAttackLegal(const GridPoint& location, const GridPoint& dest,
+                                   const std::shared_ptr<Character>& dest_character) const = 0;
+            
+            virtual void attack(const GridPoint& location, const GridPoint& dest, 
+                                std::vector<std::vector<std::shared_ptr<Character>>> & game_board) = 0;
 
             
             virtual void reloadCharacter() = 0;
             virtual char getOutPutSymbol() const = 0;
 
             virtual Character* clone() const = 0;
-            
             virtual ~Character() = default;
     };
 }
