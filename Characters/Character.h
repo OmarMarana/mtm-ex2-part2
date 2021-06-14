@@ -13,7 +13,6 @@ namespace mtm
     {
         public:
             int att_range, power, ammo, health;
-            int mov_range, reload, att_cost;
             Team team;
 
             virtual bool checkMoveLegal(const GridPoint& location , const GridPoint& dest) const = 0;
