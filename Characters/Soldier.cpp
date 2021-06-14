@@ -36,9 +36,8 @@ namespace mtm
 
     void Soldier::reloadCharacter()
     {
-
+        ammo += reload;
     }
-
 
     char Soldier::getOutPutSymbol()
     {
