@@ -7,6 +7,7 @@ namespace mtm
     namespace math
     {
         int abs(int a);
+        int ceil(float num);
     }
 }
 
