@@ -10,13 +10,21 @@ namespace mtm
 
         //Character** game_board; //maybe change to std::share_ptr...
         private:
-            std::vector<std::vector<std::shared_ptr<Character>>>  game_board;
+       //     std::vector<std::vector<std::shared_ptr<Character>>>  game_board; make sure to make game_board private !!! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
             
             int height, width;
 
+            static const int TEAM_ENUM_RANGE = 2;
+
+            static const int CHARACTER_ENUM_RANGE = 3;
+
+
+            /*yontatan: make all the paramaters const if they don't change in the functions...*/
             static void checkCellOccupied(std::vector<std::vector<std::shared_ptr<Character>>> &game_board,
                                        const GridPoint &location);
 
+
+            
             static void checkIllegalCell(int height, int width, const GridPoint &location);
 
             static void checkCellEmpty(std::vector<std::vector<std::shared_ptr<Character>>> &game_board,
@@ -24,6 +32,7 @@ namespace mtm
 
 
         public:
+            std::vector<std::vector<std::shared_ptr<Character>>>  game_board; // remove from publec !!!!!!
             Game(int height, int width);
 
 

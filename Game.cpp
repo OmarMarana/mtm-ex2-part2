@@ -1,5 +1,9 @@
 #include "Game.h"
 #include ".\Characters\Character.h"
+#include ".\Characters\Sniper.h"
+#include ".\Characters\Medic.h"
+#include ".\Characters\Soldier.h"
+
 
 namespace mtm
 {
@@ -11,9 +15,6 @@ namespace mtm
             throw Exception::IllegalArgument();
         }
 
-        /*the board may not look like we imagine it, CHECK FOR BUGS HERE
-        (its the same code from main which worked) */
-        std::vector<std::vector<std::shared_ptr<Character>>>  game_board;
         for (int i = 0; i < height; i++)
         {
             std::vector<std::shared_ptr<Character>> v1;
@@ -25,7 +26,34 @@ namespace mtm
             }
             
             game_board.push_back(v1); 
-        } 
+        }
+    }
+    
+    
+    Game::Game(const Game& other) : height(other.height) , width(other.width)
+    {
+        //std::vector<std::vector<std::shared_ptr<Character>>> new_game_board;
+        for (int i = 0; i < height; i++)
+        {
+            std::vector<std::shared_ptr<Character>> v1;
+
+            for (int j = 0; j < width; j++)
+            {
+                std::shared_ptr<Character> ptr;
+                if(other.game_board[i][j] == NULL)
+                {
+                    ptr = NULL;
+                }
+                else
+                {
+                    ptr = other.game_board[i][j]->clone();
+                }
+                
+                v1.push_back(ptr);
+            }
+            this->game_board.push_back(v1); 
+        }
+
     }
 
     /*the compiler calls the destructors for vecor and shared_ptr and all allocation
@@ -51,10 +79,11 @@ namespace mtm
         */
 
 
-        for(int row =0; row < this->height ; row++)
-        {
+        // for(int row =0; row < this->height ; row++)
+        // {
 
-        }
+        // }
+        return *this; // only for now...
     }
 
     void Game::move(const GridPoint &src_coordinates,const GridPoint &dst_coordinates)
@@ -75,9 +104,11 @@ namespace mtm
 
             
             game_board[src_coordinates.row][src_coordinates.col] = NULL;
-
         }
-
+        else
+        {
+            throw Exception::MoveTooFar();
+        }
 
     }
 
@@ -102,27 +133,60 @@ namespace mtm
     {
         checkIllegalCell(height, width, coordinates);
         
-        checkCellOccupied(game_board,coordinates);
+        checkCellOccupied(game_board, coordinates);
 
         game_board[coordinates.row][coordinates.col] = character;
 
     }
 
+    std::shared_ptr<Character> Game::makeCharacter(CharacterType type, Team team, units_t health,
+            units_t ammo, units_t range, units_t power)
+    {
+        if(health <= 0 || range < 0 || team < 0 || type < 0 ||
+           type >= CHARACTER_ENUM_RANGE || team >= TEAM_ENUM_RANGE)
+        {
+            throw Exception::IllegalArgument();
+        }
+
+        switch (type)
+        {
+        case SNIPER:
+        {
+                std::shared_ptr<Character> ptr( new Sniper(team, health, ammo, range, power) );
+                return ptr;
+        }
+        case MEDIC:
+        {
+                std::shared_ptr<Character> ptr( new Medic(team, health, ammo, range, power) );
+                return ptr;
+        }   
+        case SOLDIER:
+        {
+                std::shared_ptr<Character> ptr( new Soldier(team, health, ammo, range, power) );
+                return ptr;
+        }   
+        default:
+            return NULL;
+        }
+    }
+
+
+
     /***********************************/
     /*******STATIC FUNCS****************/
     /***********************************/
 
-    void checkIllegalCell(int height, int width, const GridPoint &location)
+    void Game::checkIllegalCell(int height, int width, const GridPoint &location)
     {
-        if(location.row >= height || location.row < 0 || location.col >= width
-        || location.col < 0 )
+        if(location.row >= height || location.row < 0 ||
+           location.col >= width || location.col < 0 )
         {
             throw Exception::IllegalCell();
         }
     }
 
-    void checkCellEmpty(std::vector<std::vector<std::shared_ptr<Character>>> &game_board,
-                                       const GridPoint &src_coordinates)
+    void Game::checkCellEmpty(std::vector<std::vector<std::shared_ptr<Character>>> &game_board,
+                              const GridPoint &src_coordinates)
     {
         if(game_board[src_coordinates.row][src_coordinates.col] == NULL)
         {
@@ -130,8 +194,8 @@ namespace mtm
         }
     }
 
-    void checkCellOccupied(std::vector<std::vector<std::shared_ptr<Character>>> &game_board,
-                                       const GridPoint &location)
+    void Game::checkCellOccupied(std::vector<std::vector<std::shared_ptr<Character>>> &game_board,
+                                 const GridPoint &location)
     {
         if(game_board[location.row][location.col] != NULL)
         {

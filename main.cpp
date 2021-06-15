@@ -1,4 +1,6 @@
 #include "./Characters/Character.h"
+#include "Auxiliaries.h"
+#include "Game.h"
 #include <cmath>
 
 using namespace mtm;
@@ -6,44 +8,50 @@ using namespace std;
 using std::string;
 
 
-void print_board(vector<vector<shared_ptr<int>>> & game_board);
-void change_vector(vector<vector<shared_ptr<int>>> & game_board);
+void print_board(vector<vector<shared_ptr<Character>>> & game_board);
 
 int main()
 {
+    cout << "TEST STARTED !" << endl;
+    int width = 5, height = 5;
 
-     int width = 3, height = 3, num = 0;
+    int hp = 10, ammo = 50, power = 100, attack_range = 2;
 
-    vector<vector< shared_ptr<int>> > game_board;
-    for (int i = 0; i < height; i++)
+    try
     {
-        // Vector to store column elements
-        vector< shared_ptr<int> > v1;
-  
-        for (int j = 0; j < width; j++)
-        {
-            v1.push_back(shared_ptr<int>(new int(width*i + j + 1)));
-        }
-  
-        // Pushing back above 1D vector
-        // to create the 2D vector
-        game_board.push_back(v1); 
-    } 
-   
-    print_board(game_board);
+    Game g = Game(height, width);
+    
+    const GridPoint topLeft = GridPoint(0, 0);
+    const GridPoint botRight = GridPoint(4, 4);
 
+    g.addCharacter(topLeft, g.makeCharacter(SOLDIER, POWERLIFTERS, hp, ammo, attack_range, power));
+
+    g.addCharacter(GridPoint(1,1), g.makeCharacter(SNIPER, CROSSFITTERS, hp,ammo, attack_range, power));
+    g.addCharacter(GridPoint(1,2), g.makeCharacter(MEDIC, CROSSFITTERS, hp,ammo, attack_range, power));
+    
+    print_board(g.game_board);
+
+
+    g.attack(topLeft, GridPoint(0,2));
+    cout << "attacking... " << endl;
+
+    print_board(g.game_board);
+
+    }
+    catch (Exception::MoveTooFar e)
+    {
+        cout << e.what() << endl;
+    }
+
+    cout << "TEST FINISHED !" << endl;
+
+
+    /*shared_ptr<Character> ptr = g[i][j] */
 
     return 0;
 }
 
-void change_vector(vector<vector<shared_ptr<int>>> & game_board)
-{
-    shared_ptr<int> ptr(new int(101));
-    
-    game_board[1][0] = ptr;
-}
-
-void print_board(vector<vector<shared_ptr<int>>> & game_board)
+void print_board(vector<vector<shared_ptr<Character>>> & game_board)
 {
     cout<<endl;
     for (int x = 0; x < game_board.size(); x++)
@@ -52,13 +60,14 @@ void print_board(vector<vector<shared_ptr<int>>> & game_board)
         {
             if(game_board[x][y] == nullptr)
             {
-                cout << "NULL ";
+                cout << "- ";
             }
             else
             {
-                cout << *game_board[x][y] << " ";
+                cout << game_board[x][y]->getOutPutSymbol() << " ";
             }
         }
         cout << endl;
     }
+    cout << endl;
 }

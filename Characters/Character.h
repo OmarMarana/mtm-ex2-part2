@@ -27,7 +27,7 @@ namespace mtm
             virtual void reloadCharacter() = 0;
             virtual char getOutPutSymbol() const = 0;
 
-            virtual Character* clone() const = 0;
+            virtual std::shared_ptr<Character> clone() const = 0;
             virtual ~Character() = default;
     };
 }

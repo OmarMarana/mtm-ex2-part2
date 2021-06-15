@@ -8,18 +8,32 @@ namespace mtm
     class Medic : public Character
     {
         public:
-            // const int RANGE = 5;
-            // Medic(Team team);//, units_t health, units_t ammo, units_t range, units_t power);
-            // ~Medic();
+            static const int MOV_RANGE             = 5;
+            static const int RELOAD                = 5;
+            static const int ATT_COST              = 1;
+            static const char SYMBOL_POWER_LIFTERS = 'M';
+            static const char SYMBOL_CROSS_FITTERS = 'm';
 
-            // void moveCharacter(GridPoint dest) const override;
-            // void attackCharacter(GridPoint dest) override;
-            // void reloadCharacter() override;
-            // char getOutPutSymbol() override;
+            
+            Medic(Team team, units_t health, units_t ammo, units_t att_range, units_t power);
+            ~Medic() override;
+
+            bool checkMoveLegal(const GridPoint& location , const GridPoint& dest) const override;
+
+            bool checkAttackLegal(const GridPoint& location, const GridPoint& dest,
+                                  const std::shared_ptr<Character>& dest_character) const override;
+
+            void attack(const GridPoint& location, const GridPoint& dest, 
+                        std::vector<std::vector<std::shared_ptr<Character>>> & game_board) override;
+            
+            void reloadCharacter() override;
+
+            char getOutPutSymbol() const override;
+
+            std::shared_ptr<Character> clone() const override;
 
         private:
-            /* private functions for logics for Medic class...*/
+            Medic(const Medic& other);
     };
 }
-
 #endif

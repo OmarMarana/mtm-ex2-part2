@@ -8,11 +8,13 @@ namespace mtm
     class Soldier : public Character
     {
         public:
-            static const int MOV_RANGE      = 3;
-            static const int RELOAD         = 3;
-            static const int ATT_COST       = 1;
-            static const int RANGE_DIVIDER  = 3;
-            static const int POWER_DIVIDER  = 2;
+            static const int MOV_RANGE             = 3;
+            static const int RELOAD                = 3;
+            static const int ATT_COST              = 1;
+            static const int RANGE_DIVIDER         = 3;
+            static const int POWER_DIVIDER         = 2;
+            static const char SYMBOL_POWER_LIFTERS = 'S';
+            static const char SYMBOL_CROSS_FITTERS = 's';
             
             Soldier(Team team, units_t health, units_t ammo, units_t att_range, units_t power);
             ~Soldier() override;
@@ -29,10 +31,14 @@ namespace mtm
 
             char getOutPutSymbol() const override;
 
+            std::shared_ptr<Character> clone() const override;
+
         private:
+            Soldier(const Soldier& other); //copy constructor
+
             static void attackCloseCharacters(std::vector<std::vector<std::shared_ptr<Character>>>& game_board,
                                               const GridPoint& dest, const int close_range, const int close_power,
-                                              const std::shared_ptr<Character> dest_character, Team self_team);
+                                              const std::shared_ptr<Character>& dest_character, Team self_team);
     };
 }
 

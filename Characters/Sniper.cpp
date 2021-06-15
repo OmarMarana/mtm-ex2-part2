@@ -9,7 +9,6 @@ namespace mtm
         this->ammo = ammo;
         this->att_range = att_range;
         this->power = power;
-
     }
 
     Sniper::~Sniper()
@@ -18,19 +17,13 @@ namespace mtm
 
     bool Sniper::checkMoveLegal(const GridPoint& location , const GridPoint& dest) const
     {
-        if(GridPoint::distance(location, dest) > MOV_RANGE)
-        {
-            throw Exception::MoveTooFar();
-        }
-        
-        return true;
+        return ( GridPoint::distance(location, dest) <= MOV_RANGE );
     }
 
     bool Sniper::checkAttackLegal(const GridPoint& location, const GridPoint& dest,
-                                  const std::shared_ptr<Character>& dest_character) const{
-
-
-        int min_range = ceil(att_range/2);
+                                  const std::shared_ptr<Character>& dest_character) const
+    {
+        int min_range = math::ceil((float)att_range / 2);
         int max_range = att_range;        
         int distance = GridPoint::distance(location, dest) <= MOV_RANGE;
 
@@ -61,29 +54,18 @@ namespace mtm
     void Sniper::attack(const GridPoint& location, const GridPoint& dest, 
                         std::vector<std::vector<std::shared_ptr<Character>>> & game_board)
     {
-        
-        if( (hit_count + 1) % 3 == 0)
+        int real_power = power;
+
+        if( (hit_count + 1) % TRIPLE_HIT == 0)
         {
-            game_board[dest.row][dest.col]->health -= power *2;
-            if(game_board[dest.row][dest.col]->health <=0)
-            {
-                game_board[dest.row][dest.col] = NULL;
-                return;
-            }
-            return;
-        }
-        else
-        {
-            game_board[dest.row][dest.col]->health -= power;
-            if(game_board[dest.row][dest.col]->health <=0)
-            {
-                game_board[dest.row][dest.col] = NULL;
-                return;
-            }
+            real_power = power * DOUBLE_POWER;
         }
 
-        
-    
+        game_board[dest.row][dest.col]->health -= power;
+        if(game_board[dest.row][dest.col]->health <= 0)
+        {
+            game_board[dest.row][dest.col] = NULL;
+        }
     }
 
     void Sniper::reloadCharacter()
@@ -94,17 +76,21 @@ namespace mtm
 
     char Sniper::getOutPutSymbol() const
     {
-        return (team == POWERLIFTERS) ? 'N' : 'n';
+        return (team == POWERLIFTERS) ? SYMBOL_POWER_LIFTERS : SYMBOL_CROSS_FITTERS;
     }
 
-
-    /*this function may cause bugs due to numerical errors*/
-    int ceil(float num) 
+    std::shared_ptr<Character> Sniper::clone() const
     {
-        int inum = (int)num;
-        if (num == (float)inum) {
-            return inum;
-        }
-        return inum + 1;
+        std::shared_ptr<Character> ptr(new Sniper(*this));
+        return ptr;
+    }
+
+    Sniper::Sniper(const Sniper& other)
+    {
+        this->team = other.team;
+        this->health = other.health;
+        this->ammo = other.ammo;
+        this->att_range = other.att_range;
+        this->power = other.power;
     }
 }
