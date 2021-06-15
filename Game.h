@@ -14,8 +14,11 @@ namespace mtm
             
             int height, width;
 
-            static void checkIllegalCell(int height, int width, const GridPoint &src_coordinates,
-                                         const GridPoint &dst_coordinates);
+            static void checkCellOccupied(std::vector<std::vector<std::shared_ptr<Character>>> &game_board,
+                                       const GridPoint &location);
+
+            static void checkIllegalCell(int height, int width, const GridPoint &location);
+
             static void checkCellEmpty(std::vector<std::vector<std::shared_ptr<Character>>> &game_board,
                                        const GridPoint &src_coordinates);
 

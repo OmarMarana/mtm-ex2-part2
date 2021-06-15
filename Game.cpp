@@ -35,19 +35,40 @@ namespace mtm
 
     }
 
+    Game& Game::operator=(const Game& other)
+    {
+        /*
+        game1 = game2;
+        foreach( shared_pter<Character> in game2)
+        {
+            
+            create an exact copy of the object (use clone ) and assign its pointer to the appropriate place
+            in game1
+
+            does clone copt health and toher stats?
+        }
+    
+        */
+
+
+        for(int row =0; row < this->height ; row++)
+        {
+
+        }
+    }
+
     void Game::move(const GridPoint &src_coordinates,const GridPoint &dst_coordinates)
     {
-        checkIllegalCell(height, width, src_coordinates,dst_coordinates);
+        checkIllegalCell( height, width, src_coordinates);
+        checkIllegalCell( height, width, dst_coordinates);
 
         checkCellEmpty(game_board, src_coordinates);
                                        
 
         if(game_board[src_coordinates.row][src_coordinates.col]->checkMoveLegal(src_coordinates,dst_coordinates))
         {
-            if(game_board[dst_coordinates.row][dst_coordinates.col] != NULL)
-            {
-                throw Exception::CellOccupied();
-            }
+            
+            checkCellOccupied(game_board,dst_coordinates);
 
             game_board[dst_coordinates.row][dst_coordinates.col] = 
             game_board[src_coordinates.row][src_coordinates.col];
@@ -63,7 +84,8 @@ namespace mtm
 
     void Game::attack(const GridPoint & src_coordinates, const GridPoint & dst_coordinates)
     {
-        checkIllegalCell( height, width, src_coordinates,dst_coordinates);
+        checkIllegalCell( height, width, src_coordinates);
+        checkIllegalCell( height, width, dst_coordinates);
 
         checkCellEmpty(game_board, src_coordinates);
 
@@ -76,13 +98,24 @@ namespace mtm
 
     }
 
-
-
-    void checkIllegalCell(int height, int width, const GridPoint &src_coordinates,const GridPoint &dst_coordinates)
+    void Game::addCharacter(const GridPoint& coordinates, std::shared_ptr<Character> character)
     {
-        if(src_coordinates.row >= height || src_coordinates.row < 0 || src_coordinates.col >= width
-        || src_coordinates.col < 0 || dst_coordinates.row >= height || dst_coordinates.row < 0
-        || dst_coordinates.col >= width || dst_coordinates.col < 0)
+        checkIllegalCell(height, width, coordinates);
+        
+        checkCellOccupied(game_board,coordinates);
+
+        game_board[coordinates.row][coordinates.col] = character;
+
+    }
+
+    /***********************************/
+    /*******STATIC FUNCS****************/
+    /***********************************/
+
+    void checkIllegalCell(int height, int width, const GridPoint &location)
+    {
+        if(location.row >= height || location.row < 0 || location.col >= width
+        || location.col < 0 )
         {
             throw Exception::IllegalCell();
         }
@@ -96,6 +129,19 @@ namespace mtm
             throw Exception::CellEmpty();
         }
     }
+
+    void checkCellOccupied(std::vector<std::vector<std::shared_ptr<Character>>> &game_board,
+                                       const GridPoint &location)
+    {
+        if(game_board[location.row][location.col] != NULL)
+        {
+            throw Exception::CellOccupied();
+        }
+    }
+
+
+
+
 
     
     // void print_board(vector<vector<shared_ptr<Character>>> &game_board)

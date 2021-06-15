@@ -61,13 +61,29 @@ namespace mtm
     void Sniper::attack(const GridPoint& location, const GridPoint& dest, 
                         std::vector<std::vector<std::shared_ptr<Character>>> & game_board)
     {
+        
         if( (hit_count + 1) % 3 == 0)
         {
             game_board[dest.row][dest.col]->health -= power *2;
+            if(game_board[dest.row][dest.col]->health <=0)
+            {
+                game_board[dest.row][dest.col] = NULL;
+                return;
+            }
+            return;
+        }
+        else
+        {
+            game_board[dest.row][dest.col]->health -= power;
+            if(game_board[dest.row][dest.col]->health <=0)
+            {
+                game_board[dest.row][dest.col] = NULL;
+                return;
+            }
         }
 
-        game_board[dest.row][dest.col]->health -= power; 
         
+    
     }
 
     void Sniper::reloadCharacter()
