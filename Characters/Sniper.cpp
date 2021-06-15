@@ -10,35 +10,29 @@ namespace mtm
         this->att_range = att_range;
         this->power = power;
 
-        this->reload = RELOAD;
-        this->mov_range = MOV_RANGE;
-        this->att_cost = ATT_COST;
     }
-
 
     Sniper::~Sniper()
     {
     }
 
-    bool Sniper::checkMoveLegal(GridPoint location ,GridPoint dest) const
+    bool Sniper::checkMoveLegal(const GridPoint& location , const GridPoint& dest) const
     {
-        return ( GridPoint::distance(location, dest) <= mov_range );
+        if(GridPoint::distance(location, dest) > MOV_RANGE)
+        {
+            throw Exception::MoveTooFar();
+        }
+        
+        return true;
     }
 
-    bool Sniper::checkAttackLegal(GridPoint location, GridPoint dest, std::shared_ptr<Character> dest_character) const
-    {
-        /*should check for IllegalCell in attack function since its the same for all characters.
-        this should also prevent code duplication.*/ 
-         
+    bool Sniper::checkAttackLegal(const GridPoint& location, const GridPoint& dest,
+                                  const std::shared_ptr<Character>& dest_character) const{
 
-        /*should check for CellEmpty in attack function since the gameBoard will be a
-        private field of game.
-        this should also prevent code duplication.*/  
- 
 
         int min_range = ceil(att_range/2);
         int max_range = att_range;        
-        int distance = GridPoint::distance(location, dest) <= mov_range;
+        int distance = GridPoint::distance(location, dest) <= MOV_RANGE;
 
         if( distance  < min_range || distance > max_range)
         {
@@ -61,20 +55,30 @@ namespace mtm
             throw Exception::IllegalTarget();
         }
 
+        return true;
+    }
 
+    void Sniper::attack(const GridPoint& location, const GridPoint& dest, 
+                        std::vector<std::vector<std::shared_ptr<Character>>> & game_board)
+    {
+        if( (hit_count + 1) % 3 == 0)
+        {
+            game_board[dest.row][dest.col]->health -= power *2;
+        }
+
+        game_board[dest.row][dest.col]->health -= power; 
         
-    
     }
 
     void Sniper::reloadCharacter()
     {
-
+        ammo += RELOAD;
     }
 
 
-    char Sniper::getOutPutSymbol()
+    char Sniper::getOutPutSymbol() const
     {
-        return 'N';
+        return (team == POWERLIFTERS) ? 'N' : 'n';
     }
 
 

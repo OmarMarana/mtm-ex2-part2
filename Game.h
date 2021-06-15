@@ -9,6 +9,16 @@ namespace mtm
         //std::shared_ptr<Character> game_board; //**** probably we will use this.... ****
 
         //Character** game_board; //maybe change to std::share_ptr...
+        private:
+            std::vector<std::vector<std::shared_ptr<Character>>>  game_board;
+            
+            int height, width;
+
+            static void checkIllegalCell(int height, int width, const GridPoint &src_coordinates,
+                                         const GridPoint &dst_coordinates);
+            static void checkCellEmpty(std::vector<std::vector<std::shared_ptr<Character>>> &game_board,
+                                       const GridPoint &src_coordinates);
+
 
         public:
             Game(int height, int width);

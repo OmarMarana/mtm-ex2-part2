@@ -8,25 +8,28 @@ namespace mtm
     class Sniper : public Character
     {
         public:
-            const int MOV_RANGE = 4;
-            const int RELOAD = 2;
-            const int ATT_COST = 1;
+            static const int MOV_RANGE      = 4;
+            static const int RELOAD         = 2;
+            static const int ATT_COST       = 1;
             
             Sniper(Team team, units_t health, units_t ammo, units_t att_range, units_t power);
             ~Sniper() override;
 
-            /*maybe should be private (pdf page 11, 4.4 )*/
-            bool checkMoveLegal(GridPoint location ,GridPoint dest) const override;
-            bool checkAttackLegal(GridPoint location, GridPoint dest, std::shared_ptr<Character> dest_character) const override;
+            bool checkMoveLegal(const GridPoint& location , const GridPoint& dest) const override;
 
+            bool checkAttackLegal(const GridPoint& location, const GridPoint& dest,
+                                  const std::shared_ptr<Character>& dest_character) const override;
+
+            void attack(const GridPoint& location, const GridPoint& dest, 
+                        std::vector<std::vector<std::shared_ptr<Character>>> & game_board) override;
+            
             void reloadCharacter() override;
-            char getOutPutSymbol() override;
 
-            static int ceil(float num);
+            char getOutPutSymbol() const override;
 
 
         private:
-            int hit_count =0;
+            int hit_count =0;      // check if this works
 
             /* private functions for logics for sniper class...*/
     };
