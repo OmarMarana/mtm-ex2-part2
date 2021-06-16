@@ -88,8 +88,8 @@ namespace mtm
     {
         int top_left_x = dest.row - close_range;
         int top_left_y = dest.col - close_range;
-        int width = game_board.size();
-        int height = game_board[0].size();
+        int width = game_board[0].size();
+        int height = game_board.size();
 
         for (int row = top_left_y; row <= dest.row + close_range; row++)
         {

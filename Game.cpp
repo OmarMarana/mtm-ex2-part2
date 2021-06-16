@@ -102,24 +102,35 @@ namespace mtm
 
     }
 
-    Game& Game::operator=(const Game& other) 
+    Game& Game::operator=(const Game& other)
     {
         /*checking clear functionality*/
+        /*
+            Game g = Game(5,5);
+            Game g2 = Game(9,9);
+
+            g2 = Game(7,7);
+            
+
+        */
         
         /*this = other*/
 
         height = other.height;
         width = other.width;
-
-        game_board.clear(); // old info is cleared with no leaks
+        //Valgrind, if we found any memory leaks in the tests, try to do: game_board[i].clear()....
+        // game_board[0].clear(); // old info is cleared with no leaks
+        // game_board[i].clear();
+        
+        game_board.clear();
 
         for (int i = 0; i < other.height; i++)
         {
-            std::vector<std::shared_ptr<Character>> v1; // (**) why dosn't this get deleted upon exiting the func? its local...
+            std::vector<std::shared_ptr<Character>> v1; 
 
             for (int j = 0; j < other.width; j++)
             {
-                std::shared_ptr<Character> ptr; // (**)  this too
+                std::shared_ptr<Character> ptr; 
                 if(other.game_board[i][j] == NULL)
                 {
                     ptr = NULL;
@@ -135,7 +146,7 @@ namespace mtm
             this->game_board.push_back(v1); 
         }
 
-        return *this; // only for now...
+        return *this;
     }
 
     void Game::move(const GridPoint &src_coordinates,const GridPoint &dst_coordinates)
@@ -192,34 +203,29 @@ namespace mtm
 
     }
 
-    std::ostream& Game::operator<<(std::ostream& stream) const
+    std::ostream& operator<<(std::ostream& stream, const Game& game)
     {
         std::string str= "";
 
-        const char * begin = str.data(); // maybe a bug
-
-        for (int i = 0; i < height; i++)
-        {
-            
-            for (int j = 0; j < width; j++)
+        for (int i = 0; i < game.height; i++)
+        { 
+            for (int j = 0; j < game.width; j++)
             {
-                if(game_board[i][j] == NULL)
+                if(game.game_board[i][j] == NULL)
                 {
-                    str.push_back(' ');   // define
+                    str.push_back(Game::EMPTY_CELL_OUTPUT);
                 }
-
-                str.push_back(game_board[i][j]->getOutPutSymbol());
-                
-            }
-            
+                else
+                {
+                    str.push_back(game.game_board[i][j]->getOutPutSymbol());
+                }
+            } 
         }
 
-        const char * end = begin + str.size(); // maybe +-1
-
-        std::ostream& os = printGameBoard(os, begin, end, width) ;
-
-        return os;
-        
+        const char * begin = str.data();
+        const char * end = begin + str.size();
+            
+        return printGameBoard(stream, begin, end, game.width); 
     }
 
     bool Game::isOver(Team* winningTeam) const

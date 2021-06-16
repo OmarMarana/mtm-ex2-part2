@@ -61,8 +61,8 @@ namespace mtm
             real_power = power * DOUBLE_POWER;
         }
 
-        // game_board[dest.row][dest.col]->health -= power; // old
-        game_board[dest.row][dest.col]->health -= real_power;  // Omar 
+        
+        game_board[dest.row][dest.col]->health -= real_power; 
         if(game_board[dest.row][dest.col]->health <= 0)
         {
             game_board[dest.row][dest.col] = NULL;

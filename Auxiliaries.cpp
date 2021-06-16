@@ -11,6 +11,6 @@ std::ostream &mtm::printGameBoard(std::ostream &os, const char *begin,
         if ((temp - begin) % width == 0)
             os << "|" << std::endl;
     }
-    os << delimiter;
+    os << delimiter << std::endl;
     return os;
 }

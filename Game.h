@@ -6,17 +6,13 @@ namespace mtm
 {
     class Game
     {
-        //std::shared_ptr<Character> game_board; //**** probably we will use this.... ****
-
-        //Character** game_board; //maybe change to std::share_ptr...
         private:
-       //     std::vector<std::vector<std::shared_ptr<Character>>>  game_board; make sure to make game_board private !!! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-            
+            std::vector<std::vector<std::shared_ptr<Character>>> game_board;
             int height, width;
 
-            static const int TEAM_ENUM_RANGE = 2;
-
+            static const int TEAM_ENUM_RANGE      = 2;
             static const int CHARACTER_ENUM_RANGE = 3;
+            static const char EMPTY_CELL_OUTPUT   = ' ';
             
 
             /*yontatan: make all the paramaters const if they don't change in the functions...*/
@@ -30,12 +26,8 @@ namespace mtm
             static void checkCellEmpty(std::vector<std::vector<std::shared_ptr<Character>>> &game_board,
                                        const GridPoint &src_coordinates);
 
-
         public:
-            std::vector<std::vector<std::shared_ptr<Character>>>  game_board; // remove from publec !!!!!!
             Game(int height, int width);
-
-
             ~Game();
             Game(const Game& other);
             Game& operator=(const Game& other);
@@ -51,10 +43,9 @@ namespace mtm
 
             void reload(const GridPoint &coordinates);
 
-            std::ostream& operator<<(std::ostream& stream) const;
-
             bool isOver(Team* winningTeam = NULL) const;
+
+            friend std::ostream& operator<<(std::ostream& stream, const Game& game);
     };
 }
-
 #endif
