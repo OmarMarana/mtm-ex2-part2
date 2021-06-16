@@ -1,8 +1,8 @@
 #include "Game.h"
-#include ".\Characters\Character.h"
-#include ".\Characters\Sniper.h"
-#include ".\Characters\Medic.h"
-#include ".\Characters\Soldier.h"
+#include "Character.h"
+#include "Sniper.h"
+#include "Medic.h"
+#include "Soldier.h"
 
 
 namespace mtm
@@ -32,15 +32,6 @@ namespace mtm
     
     Game::Game(const Game& other) : height(other.height) , width(other.width)
     {
-        //std::vector<std::vector<std::shared_ptr<Character>>> new_game_board;
-
-        //game this = other; 
-        /*other.height other.width??*/
-        /*CHANGED TO other.height other.width*/
-
-        // gameCopyBoard( *this, other);
-
-
         for (int i = 0; i < other.height; i++)
         {
             std::vector<std::shared_ptr<Character>> v1;
@@ -65,38 +56,6 @@ namespace mtm
 
     }
 
-    // void gameCopyBoard(Game& game, const Game& other)
-    // {
-    //     int height = game.game_board.size(); // height
-
-    //     int width = game.game_board[0].size(); // width
-
-    //     for (int i = 0; i < height; i++)
-    //     {
-    //         std::vector<std::shared_ptr<Character>> v1;
-
-    //         for (int j = 0; j < width; j++)
-    //         {
-    //             std::shared_ptr<Character> ptr;
-    //             if(other.game_board[i][j] == NULL)
-    //             {
-    //                 ptr = NULL;
-    //             }
-    //             else
-    //             {
-    //                 ptr = other.game_board[i][j]->clone();
-    //             }
-                
-    //             v1.push_back(ptr);
-                
-    //         }
-    //         game.game_board.push_back(v1); 
-    //     }
-
-    // }
-
-    /*the compiler calls the destructors for vecor and shared_ptr and all allocation
-    will be freed*/
     Game::~Game()
     {
 
@@ -104,23 +63,8 @@ namespace mtm
 
     Game& Game::operator=(const Game& other)
     {
-        /*checking clear functionality*/
-        /*
-            Game g = Game(5,5);
-            Game g2 = Game(9,9);
-
-            g2 = Game(7,7);
-            
-
-        */
-        
-        /*this = other*/
-
         height = other.height;
         width = other.width;
-        //Valgrind, if we found any memory leaks in the tests, try to do: game_board[i].clear()....
-        // game_board[0].clear(); // old info is cleared with no leaks
-        // game_board[i].clear();
         
         game_board.clear();
 

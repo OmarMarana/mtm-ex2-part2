@@ -1,8 +1,8 @@
 #ifndef CHARACTER_H
 #define CHARACTER_H
-#include "../Auxiliaries.h"
-#include "../Functions.h"
-#include "../Exception.h"
+#include "Auxiliaries.h"
+#include "Functions.h"
+#include "Exception.h"
 #include <memory>
 #include <vector>
 

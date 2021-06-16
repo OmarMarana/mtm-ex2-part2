@@ -1,7 +1,6 @@
-#include "./Characters/Character.h"
+#include "Character.h"
 #include "Auxiliaries.h"
 #include "Game.h"
-#include <cmath>
 
 using namespace mtm;
 using namespace std;
@@ -13,7 +12,7 @@ void print_board(vector<vector<shared_ptr<Character>>> & game_board);
 int main()
 {
     cout << "TEST STARTED !" << endl;
-    int width = 5, height = 10;
+    int width = 5, height = 5;
 
     int hp = 10, ammo = 50, power = 100, attack_range = 100;
 
@@ -25,22 +24,12 @@ int main()
     g.addCharacter(GridPoint(0,0), g.makeCharacter(SOLDIER, POWERLIFTERS, hp, ammo, attack_range, power));
     g.addCharacter(GridPoint(1,1), g.makeCharacter(SNIPER, CROSSFITTERS, hp,ammo, attack_range, power));
     g.addCharacter(GridPoint(1,2), g.makeCharacter(MEDIC, CROSSFITTERS, hp,ammo, attack_range, power));
+    
+    Game g2 = Game(height, width);
 
-    cout << g;
+    g2 = g;
 
-    // Team winner = CROSSFITTERS;
-    // if(g.isOver(&winner))
-    // {
-    //     cout << "g2 over" << endl;
-
-    // }
-    // else
-    // {
-    //     cout << "g2 not over" << endl;
-    // }
-
-    cout << "Operator << output: " << endl;
-    cout << g;
+    cout << "g: \n" << g << endl << "g2: \n" << g2;
 
     }
 
