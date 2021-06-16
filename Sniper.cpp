@@ -9,6 +9,7 @@ namespace mtm
         this->ammo = ammo;
         this->att_range = att_range;
         this->power = power;
+		this->hit_count = 0;
     }
 
     Sniper::~Sniper()
@@ -23,16 +24,16 @@ namespace mtm
     bool Sniper::checkAttackLegal(const GridPoint& location, const GridPoint& dest,
                                   const std::shared_ptr<Character>& dest_character) const
     {
-        int min_range = math::ceil((float)att_range / 2);
+        int min_range = std::ceil((float)att_range / 2);
         int max_range = att_range;        
-        int distance = GridPoint::distance(location, dest) <= MOV_RANGE;
+        int distance = GridPoint::distance(location, dest);
 
         if( distance  < min_range || distance > max_range)
         {
             throw OutOfRange();
         }
 
-        if(ammo < 1)
+        if(ammo < ATT_COST)
         {
             throw OutOfAmmo();
         }
@@ -55,6 +56,7 @@ namespace mtm
                         std::vector<std::vector<std::shared_ptr<Character>>> & game_board)
     {
         int real_power = power;
+		
 
         if( (hit_count + 1) % TRIPLE_HIT == 0)
         {
@@ -67,6 +69,8 @@ namespace mtm
         {
             game_board[dest.row][dest.col] = NULL;
         }
+		ammo -= ATT_COST;
+		hit_count++;
     }
 
     void Sniper::reloadCharacter()

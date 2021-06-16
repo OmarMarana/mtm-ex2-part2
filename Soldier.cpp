@@ -49,10 +49,14 @@ namespace mtm
         if(dest_character != nullptr && team != dest_character->team)
         {
             dest_character->health -= this->power;
+			if(dest_character->health <= 0)
+            {
+				game_board[dest.row][dest.col] = NULL;
+            }
         }
 
-        int close_range = math::ceil( (float) att_range / RANGE_DIVIDER);
-        int close_power = math::ceil( (float) power / POWER_DIVIDER);
+        int close_range = std::ceil( (float) att_range / RANGE_DIVIDER);
+        int close_power = std::ceil( (float) power / POWER_DIVIDER);
 
         attackCloseCharacters(game_board, dest, close_range, close_power, dest_character, team); 
     }
@@ -86,8 +90,8 @@ namespace mtm
                                         const GridPoint& dest, const int close_range, const int close_power,
                                         const std::shared_ptr<Character>& dest_character, Team self_team)
     {
-        int top_left_x = dest.row - close_range;
-        int top_left_y = dest.col - close_range;
+        int top_left_x = dest.col - close_range;
+        int top_left_y = dest.row - close_range;
         int width = game_board[0].size();
         int height = game_board.size();
 

@@ -1,12 +1,14 @@
+#ifndef EXCEPTIONS_H_ //Exceptions.h
+#define EXCEPTIONS_H_
 #include <exception>
 
 namespace mtm
 {
-    class Exception: public std::exception
-    {
-    };
+	class Exception : public std::exception
+	{
+	};
 
-    class IllegalArgument : public Exception
+	class IllegalArgument : public Exception
     {
         public: const char * what() const noexcept override;
     };
@@ -47,3 +49,4 @@ namespace mtm
     };
 
 }
+#endif

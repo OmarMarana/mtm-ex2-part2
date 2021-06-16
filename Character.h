@@ -1,10 +1,10 @@
 #ifndef CHARACTER_H
 #define CHARACTER_H
 #include "Auxiliaries.h"
-#include "Functions.h"
-#include "Exception.h"
+#include "Exceptions.h"
 #include <memory>
 #include <vector>
+#include <cmath>
 
 
 namespace mtm
