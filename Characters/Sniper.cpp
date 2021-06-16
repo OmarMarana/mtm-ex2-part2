@@ -29,23 +29,23 @@ namespace mtm
 
         if( distance  < min_range || distance > max_range)
         {
-            throw Exception::OutOfRange();
+            throw OutOfRange();
         }
 
         if(ammo < 1)
         {
-            throw Exception::OutOfAmmo();
+            throw OutOfAmmo();
         }
 
         if(dest_character == NULL)
         {
-            throw Exception::IllegalTarget();
+            throw IllegalTarget();
         }
 
         /*dest_character isn't null*/
         if(dest_character->team == this->team)
         {
-            throw Exception::IllegalTarget();
+            throw IllegalTarget();
         }
 
         return true;

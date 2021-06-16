@@ -27,19 +27,19 @@ namespace mtm
         /* check range*/
         if(GridPoint::distance(location, dest) > att_range)
         {
-            throw Exception::OutOfRange();
+            throw OutOfRange();
         }
 
         /* check ammo ONLY if target is an enemy character*/
         if(dest_character != nullptr && dest_character->team != team && ammo < ATT_COST)
         {
-            throw Exception::OutOfAmmo();
+            throw OutOfAmmo();
         }
 
         /* check if cell is empty. self attack is not allowed. */
         if(dest_character == nullptr || location == dest)
         {
-            throw Exception::IllegalTarget();
+            throw IllegalTarget();
         }
 
         return true;

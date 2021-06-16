@@ -27,13 +27,13 @@ namespace mtm
         if( (dest.col != location.col && dest.row != location.row) ||
             GridPoint::distance(location, dest) > att_range)
         {
-            throw Exception::OutOfRange();
+            throw OutOfRange();
         }
 
 
         if(ammo < ATT_COST)
         {
-            throw Exception::OutOfAmmo();
+            throw OutOfAmmo();
         }
 
         return true;

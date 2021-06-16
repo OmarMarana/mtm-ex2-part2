@@ -12,7 +12,7 @@ namespace mtm
     {
         if(height <=0 || width <=0 )
         {
-            throw Exception::IllegalArgument();
+            throw IllegalArgument();
         }
 
         for (int i = 0; i < height; i++)
@@ -159,7 +159,7 @@ namespace mtm
         }
         else
         {
-            throw Exception::MoveTooFar();
+            throw MoveTooFar();
         }
 
     }
@@ -293,7 +293,7 @@ namespace mtm
         if(health <= 0 || range < 0 || team < 0 || type < 0 ||
            type >= CHARACTER_ENUM_RANGE || team >= TEAM_ENUM_RANGE)
         {
-            throw Exception::IllegalArgument();
+            throw IllegalArgument();
         }
 
         switch (type)
@@ -329,7 +329,7 @@ namespace mtm
         if(location.row >= height || location.row < 0 ||
            location.col >= width || location.col < 0 )
         {
-            throw Exception::IllegalCell();
+            throw IllegalCell();
         }
     }
 
@@ -338,7 +338,7 @@ namespace mtm
     {
         if(game_board[src_coordinates.row][src_coordinates.col] == NULL)
         {
-            throw Exception::CellEmpty();
+            throw CellEmpty();
         }
     }
 
@@ -347,7 +347,7 @@ namespace mtm
     {
         if(game_board[location.row][location.col] != NULL)
         {
-            throw Exception::CellOccupied();
+            throw CellOccupied();
         }
     }
 

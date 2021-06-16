@@ -97,7 +97,7 @@ int main()
 
 
     }
-    catch (Exception::MoveTooFar e)
+    catch (MoveTooFar e)
     {
         cout << e.what() << endl;
     }
