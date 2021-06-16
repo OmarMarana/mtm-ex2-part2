@@ -106,6 +106,8 @@ namespace mtm
                 }
 
                 /* Check if cell not empty or, same team */
+                /*im guessing the order inside the if dosn't matter so looks the NULL in the eyes 
+                and thats not good*/
                 if(game_board[row][col] == nullptr || game_board[row][col]->team == self_team)
                 {
                     continue;

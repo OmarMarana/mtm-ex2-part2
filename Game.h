@@ -17,7 +17,7 @@ namespace mtm
             static const int TEAM_ENUM_RANGE = 2;
 
             static const int CHARACTER_ENUM_RANGE = 3;
-
+            
 
             /*yontatan: make all the paramaters const if they don't change in the functions...*/
             static void checkCellOccupied(std::vector<std::vector<std::shared_ptr<Character>>> &game_board,

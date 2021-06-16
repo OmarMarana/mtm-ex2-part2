@@ -33,11 +33,19 @@ namespace mtm
     Game::Game(const Game& other) : height(other.height) , width(other.width)
     {
         //std::vector<std::vector<std::shared_ptr<Character>>> new_game_board;
-        for (int i = 0; i < height; i++)
+
+        //game this = other; 
+        /*other.height other.width??*/
+        /*CHANGED TO other.height other.width*/
+
+        // gameCopyBoard( *this, other);
+
+
+        for (int i = 0; i < other.height; i++)
         {
             std::vector<std::shared_ptr<Character>> v1;
 
-            for (int j = 0; j < width; j++)
+            for (int j = 0; j < other.width; j++)
             {
                 std::shared_ptr<Character> ptr;
                 if(other.game_board[i][j] == NULL)
@@ -50,11 +58,42 @@ namespace mtm
                 }
                 
                 v1.push_back(ptr);
+                
             }
             this->game_board.push_back(v1); 
         }
 
     }
+
+    // void gameCopyBoard(Game& game, const Game& other)
+    // {
+    //     int height = game.game_board.size(); // height
+
+    //     int width = game.game_board[0].size(); // width
+
+    //     for (int i = 0; i < height; i++)
+    //     {
+    //         std::vector<std::shared_ptr<Character>> v1;
+
+    //         for (int j = 0; j < width; j++)
+    //         {
+    //             std::shared_ptr<Character> ptr;
+    //             if(other.game_board[i][j] == NULL)
+    //             {
+    //                 ptr = NULL;
+    //             }
+    //             else
+    //             {
+    //                 ptr = other.game_board[i][j]->clone();
+    //             }
+                
+    //             v1.push_back(ptr);
+                
+    //         }
+    //         game.game_board.push_back(v1); 
+    //     }
+
+    // }
 
     /*the compiler calls the destructors for vecor and shared_ptr and all allocation
     will be freed*/
@@ -63,26 +102,39 @@ namespace mtm
 
     }
 
-    Game& Game::operator=(const Game& other)
+    Game& Game::operator=(const Game& other) 
     {
-        /*
-        game1 = game2;
-        foreach( shared_pter<Character> in game2)
+        /*checking clear functionality*/
+        
+        /*this = other*/
+
+        height = other.height;
+        width = other.width;
+
+        game_board.clear(); // old info is cleared with no leaks
+
+        for (int i = 0; i < other.height; i++)
         {
-            
-            create an exact copy of the object (use clone ) and assign its pointer to the appropriate place
-            in game1
+            std::vector<std::shared_ptr<Character>> v1; // (**) why dosn't this get deleted upon exiting the func? its local...
 
-            does clone copt health and toher stats?
+            for (int j = 0; j < other.width; j++)
+            {
+                std::shared_ptr<Character> ptr; // (**)  this too
+                if(other.game_board[i][j] == NULL)
+                {
+                    ptr = NULL;
+                }
+                else
+                {
+                    ptr = other.game_board[i][j]->clone();
+                }
+                
+                v1.push_back(ptr);
+                
+            }
+            this->game_board.push_back(v1); 
         }
-    
-        */
 
-
-        // for(int row =0; row < this->height ; row++)
-        // {
-
-        // }
         return *this; // only for now...
     }
 
@@ -128,6 +180,102 @@ namespace mtm
         }
 
     }
+
+    void Game::reload(const GridPoint &coordinates)
+    {
+        checkIllegalCell(height, width, coordinates);
+        
+        checkCellEmpty(game_board, coordinates);
+
+        game_board[coordinates.row][coordinates.col]->reloadCharacter();
+
+
+    }
+
+    std::ostream& Game::operator<<(std::ostream& stream) const
+    {
+        std::string str= "";
+
+        const char * begin = str.data(); // maybe a bug
+
+        for (int i = 0; i < height; i++)
+        {
+            
+            for (int j = 0; j < width; j++)
+            {
+                if(game_board[i][j] == NULL)
+                {
+                    str.push_back(' ');   // define
+                }
+
+                str.push_back(game_board[i][j]->getOutPutSymbol());
+                
+            }
+            
+        }
+
+        const char * end = begin + str.size(); // maybe +-1
+
+        std::ostream& os = printGameBoard(os, begin, end, width) ;
+
+        return os;
+        
+    }
+
+    bool Game::isOver(Team* winningTeam) const
+    {
+        bool cross_fitter_found =false, power_lifter_found =false;
+
+        for (int i = 0; i < height; i++)
+        {
+            for (int j = 0; j < width; j++)
+            {
+                if(game_board[i][j] == NULL)
+                {
+                    continue;
+                }
+                
+                if(game_board[i][j]->team == CROSSFITTERS)
+                {
+                    cross_fitter_found = true;
+                }
+                
+                if(game_board[i][j]->team == POWERLIFTERS)
+                {
+                    power_lifter_found = true;
+                }
+            }
+        }
+        
+        /*if the board is empty, or members of the two teams are present,
+        then there is no winner*/
+        if( (cross_fitter_found && power_lifter_found) ||
+            (!cross_fitter_found && !power_lifter_found))
+        {
+            return false;
+        }
+
+        /*if reached here then there is a winner and the game is over.
+        The question is whether winninfTeam is null or not*/
+
+        if( winningTeam != NULL)
+        {
+            if(cross_fitter_found)
+            {
+                *winningTeam = CROSSFITTERS;
+            }
+            else
+            {
+                *winningTeam = POWERLIFTERS;
+            }
+        }
+
+        return true;
+
+    }
+
+
+
 
     void Game::addCharacter(const GridPoint& coordinates, std::shared_ptr<Character> character)
     {
