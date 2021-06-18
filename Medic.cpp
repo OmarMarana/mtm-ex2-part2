@@ -54,6 +54,11 @@ namespace mtm
         {
             ammo -= ATT_COST;
             dest_character->health -= this->power;
+            
+            if(dest_character->health <= 0)
+            {
+                game_board[dest.row][dest.col] = NULL;
+            }
         }
         else
         {

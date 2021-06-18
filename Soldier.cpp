@@ -24,16 +24,19 @@ namespace mtm
                                    const std::shared_ptr<Character>& dest_character) const
     {
         /* check same line and range*/
-        if( (dest.col != location.col && dest.row != location.row) ||
-            GridPoint::distance(location, dest) > att_range)
+        if(GridPoint::distance(location, dest) > att_range)
         {
             throw OutOfRange();
         }
 
-
         if(ammo < ATT_COST)
         {
             throw OutOfAmmo();
+        }
+
+        if( dest.col != location.col && dest.row != location.row)
+        {
+            throw IllegalTarget();
         }
 
         return true;

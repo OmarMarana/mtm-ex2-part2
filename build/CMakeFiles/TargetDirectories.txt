@@ -1,0 +1,3 @@
+C:/Users/User/OneDrive/Technion/SemesterB/mtm/hw/hw2/mtm-ex2/Part2/mtm-ex2-part2/build/CMakeFiles/PART_2_EXE.dir
+C:/Users/User/OneDrive/Technion/SemesterB/mtm/hw/hw2/mtm-ex2/Part2/mtm-ex2-part2/build/CMakeFiles/edit_cache.dir
+C:/Users/User/OneDrive/Technion/SemesterB/mtm/hw/hw2/mtm-ex2/Part2/mtm-ex2-part2/build/CMakeFiles/rebuild_cache.dir

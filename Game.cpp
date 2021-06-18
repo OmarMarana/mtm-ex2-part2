@@ -104,7 +104,7 @@ namespace mtm
         if(game_board[src_coordinates.row][src_coordinates.col]->checkMoveLegal(src_coordinates,dst_coordinates))
         {
             
-            checkCellOccupied(game_board,dst_coordinates);
+            checkCellOccupied(game_board, dst_coordinates);
 
             game_board[dst_coordinates.row][dst_coordinates.col] = 
             game_board[src_coordinates.row][src_coordinates.col];
@@ -223,8 +223,6 @@ namespace mtm
         return true;
 
     }
-
-
 
 
     void Game::addCharacter(const GridPoint& coordinates, std::shared_ptr<Character> character)
