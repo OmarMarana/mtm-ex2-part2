@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/User/OneDrive/Technion/SemesterB/mtm/hw/hw2/mtm-ex2/Part2/mtm-ex2-part2
+# Install script for directory: C:/Users/omarm/mtm-ex2/mtm-ex2-part2
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/User/OneDrive/Technion/SemesterB/mtm/hw/hw2/mtm-ex2/Part2/mtm-ex2-part2/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/omarm/mtm-ex2/mtm-ex2-part2/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

@@ -52,10 +52,10 @@ RM = "C:\Program Files\CMake\bin\cmake.exe" -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\User\OneDrive\Technion\SemesterB\mtm\hw\hw2\mtm-ex2\Part2\mtm-ex2-part2
+CMAKE_SOURCE_DIR = C:\Users\omarm\mtm-ex2\mtm-ex2-part2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\User\OneDrive\Technion\SemesterB\mtm\hw\hw2\mtm-ex2\Part2\mtm-ex2-part2\build
+CMAKE_BINARY_DIR = C:\Users\omarm\mtm-ex2\mtm-ex2-part2\build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/PART_2_EXE.dir/depend.make
@@ -71,100 +71,100 @@ include CMakeFiles/PART_2_EXE.dir/flags.make
 CMakeFiles/PART_2_EXE.dir/main.cpp.obj: CMakeFiles/PART_2_EXE.dir/flags.make
 CMakeFiles/PART_2_EXE.dir/main.cpp.obj: ../main.cpp
 CMakeFiles/PART_2_EXE.dir/main.cpp.obj: CMakeFiles/PART_2_EXE.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\User\OneDrive\Technion\SemesterB\mtm\hw\hw2\mtm-ex2\Part2\mtm-ex2-part2\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/PART_2_EXE.dir/main.cpp.obj"
-	C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PART_2_EXE.dir/main.cpp.obj -MF CMakeFiles\PART_2_EXE.dir\main.cpp.obj.d -o CMakeFiles\PART_2_EXE.dir\main.cpp.obj -c C:\Users\User\OneDrive\Technion\SemesterB\mtm\hw\hw2\mtm-ex2\Part2\mtm-ex2-part2\main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\omarm\mtm-ex2\mtm-ex2-part2\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/PART_2_EXE.dir/main.cpp.obj"
+	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PART_2_EXE.dir/main.cpp.obj -MF CMakeFiles\PART_2_EXE.dir\main.cpp.obj.d -o CMakeFiles\PART_2_EXE.dir\main.cpp.obj -c C:\Users\omarm\mtm-ex2\mtm-ex2-part2\main.cpp
 
 CMakeFiles/PART_2_EXE.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PART_2_EXE.dir/main.cpp.i"
-	C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\User\OneDrive\Technion\SemesterB\mtm\hw\hw2\mtm-ex2\Part2\mtm-ex2-part2\main.cpp > CMakeFiles\PART_2_EXE.dir\main.cpp.i
+	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\omarm\mtm-ex2\mtm-ex2-part2\main.cpp > CMakeFiles\PART_2_EXE.dir\main.cpp.i
 
 CMakeFiles/PART_2_EXE.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PART_2_EXE.dir/main.cpp.s"
-	C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\User\OneDrive\Technion\SemesterB\mtm\hw\hw2\mtm-ex2\Part2\mtm-ex2-part2\main.cpp -o CMakeFiles\PART_2_EXE.dir\main.cpp.s
+	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\omarm\mtm-ex2\mtm-ex2-part2\main.cpp -o CMakeFiles\PART_2_EXE.dir\main.cpp.s
 
 CMakeFiles/PART_2_EXE.dir/Exceptions.cpp.obj: CMakeFiles/PART_2_EXE.dir/flags.make
 CMakeFiles/PART_2_EXE.dir/Exceptions.cpp.obj: ../Exceptions.cpp
 CMakeFiles/PART_2_EXE.dir/Exceptions.cpp.obj: CMakeFiles/PART_2_EXE.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\User\OneDrive\Technion\SemesterB\mtm\hw\hw2\mtm-ex2\Part2\mtm-ex2-part2\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/PART_2_EXE.dir/Exceptions.cpp.obj"
-	C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PART_2_EXE.dir/Exceptions.cpp.obj -MF CMakeFiles\PART_2_EXE.dir\Exceptions.cpp.obj.d -o CMakeFiles\PART_2_EXE.dir\Exceptions.cpp.obj -c C:\Users\User\OneDrive\Technion\SemesterB\mtm\hw\hw2\mtm-ex2\Part2\mtm-ex2-part2\Exceptions.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\omarm\mtm-ex2\mtm-ex2-part2\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/PART_2_EXE.dir/Exceptions.cpp.obj"
+	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PART_2_EXE.dir/Exceptions.cpp.obj -MF CMakeFiles\PART_2_EXE.dir\Exceptions.cpp.obj.d -o CMakeFiles\PART_2_EXE.dir\Exceptions.cpp.obj -c C:\Users\omarm\mtm-ex2\mtm-ex2-part2\Exceptions.cpp
 
 CMakeFiles/PART_2_EXE.dir/Exceptions.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PART_2_EXE.dir/Exceptions.cpp.i"
-	C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\User\OneDrive\Technion\SemesterB\mtm\hw\hw2\mtm-ex2\Part2\mtm-ex2-part2\Exceptions.cpp > CMakeFiles\PART_2_EXE.dir\Exceptions.cpp.i
+	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\omarm\mtm-ex2\mtm-ex2-part2\Exceptions.cpp > CMakeFiles\PART_2_EXE.dir\Exceptions.cpp.i
 
 CMakeFiles/PART_2_EXE.dir/Exceptions.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PART_2_EXE.dir/Exceptions.cpp.s"
-	C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\User\OneDrive\Technion\SemesterB\mtm\hw\hw2\mtm-ex2\Part2\mtm-ex2-part2\Exceptions.cpp -o CMakeFiles\PART_2_EXE.dir\Exceptions.cpp.s
+	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\omarm\mtm-ex2\mtm-ex2-part2\Exceptions.cpp -o CMakeFiles\PART_2_EXE.dir\Exceptions.cpp.s
 
 CMakeFiles/PART_2_EXE.dir/Auxiliaries.cpp.obj: CMakeFiles/PART_2_EXE.dir/flags.make
 CMakeFiles/PART_2_EXE.dir/Auxiliaries.cpp.obj: ../Auxiliaries.cpp
 CMakeFiles/PART_2_EXE.dir/Auxiliaries.cpp.obj: CMakeFiles/PART_2_EXE.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\User\OneDrive\Technion\SemesterB\mtm\hw\hw2\mtm-ex2\Part2\mtm-ex2-part2\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/PART_2_EXE.dir/Auxiliaries.cpp.obj"
-	C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PART_2_EXE.dir/Auxiliaries.cpp.obj -MF CMakeFiles\PART_2_EXE.dir\Auxiliaries.cpp.obj.d -o CMakeFiles\PART_2_EXE.dir\Auxiliaries.cpp.obj -c C:\Users\User\OneDrive\Technion\SemesterB\mtm\hw\hw2\mtm-ex2\Part2\mtm-ex2-part2\Auxiliaries.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\omarm\mtm-ex2\mtm-ex2-part2\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/PART_2_EXE.dir/Auxiliaries.cpp.obj"
+	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PART_2_EXE.dir/Auxiliaries.cpp.obj -MF CMakeFiles\PART_2_EXE.dir\Auxiliaries.cpp.obj.d -o CMakeFiles\PART_2_EXE.dir\Auxiliaries.cpp.obj -c C:\Users\omarm\mtm-ex2\mtm-ex2-part2\Auxiliaries.cpp
 
 CMakeFiles/PART_2_EXE.dir/Auxiliaries.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PART_2_EXE.dir/Auxiliaries.cpp.i"
-	C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\User\OneDrive\Technion\SemesterB\mtm\hw\hw2\mtm-ex2\Part2\mtm-ex2-part2\Auxiliaries.cpp > CMakeFiles\PART_2_EXE.dir\Auxiliaries.cpp.i
+	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\omarm\mtm-ex2\mtm-ex2-part2\Auxiliaries.cpp > CMakeFiles\PART_2_EXE.dir\Auxiliaries.cpp.i
 
 CMakeFiles/PART_2_EXE.dir/Auxiliaries.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PART_2_EXE.dir/Auxiliaries.cpp.s"
-	C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\User\OneDrive\Technion\SemesterB\mtm\hw\hw2\mtm-ex2\Part2\mtm-ex2-part2\Auxiliaries.cpp -o CMakeFiles\PART_2_EXE.dir\Auxiliaries.cpp.s
+	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\omarm\mtm-ex2\mtm-ex2-part2\Auxiliaries.cpp -o CMakeFiles\PART_2_EXE.dir\Auxiliaries.cpp.s
 
 CMakeFiles/PART_2_EXE.dir/Game.cpp.obj: CMakeFiles/PART_2_EXE.dir/flags.make
 CMakeFiles/PART_2_EXE.dir/Game.cpp.obj: ../Game.cpp
 CMakeFiles/PART_2_EXE.dir/Game.cpp.obj: CMakeFiles/PART_2_EXE.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\User\OneDrive\Technion\SemesterB\mtm\hw\hw2\mtm-ex2\Part2\mtm-ex2-part2\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/PART_2_EXE.dir/Game.cpp.obj"
-	C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PART_2_EXE.dir/Game.cpp.obj -MF CMakeFiles\PART_2_EXE.dir\Game.cpp.obj.d -o CMakeFiles\PART_2_EXE.dir\Game.cpp.obj -c C:\Users\User\OneDrive\Technion\SemesterB\mtm\hw\hw2\mtm-ex2\Part2\mtm-ex2-part2\Game.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\omarm\mtm-ex2\mtm-ex2-part2\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/PART_2_EXE.dir/Game.cpp.obj"
+	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PART_2_EXE.dir/Game.cpp.obj -MF CMakeFiles\PART_2_EXE.dir\Game.cpp.obj.d -o CMakeFiles\PART_2_EXE.dir\Game.cpp.obj -c C:\Users\omarm\mtm-ex2\mtm-ex2-part2\Game.cpp
 
 CMakeFiles/PART_2_EXE.dir/Game.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PART_2_EXE.dir/Game.cpp.i"
-	C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\User\OneDrive\Technion\SemesterB\mtm\hw\hw2\mtm-ex2\Part2\mtm-ex2-part2\Game.cpp > CMakeFiles\PART_2_EXE.dir\Game.cpp.i
+	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\omarm\mtm-ex2\mtm-ex2-part2\Game.cpp > CMakeFiles\PART_2_EXE.dir\Game.cpp.i
 
 CMakeFiles/PART_2_EXE.dir/Game.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PART_2_EXE.dir/Game.cpp.s"
-	C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\User\OneDrive\Technion\SemesterB\mtm\hw\hw2\mtm-ex2\Part2\mtm-ex2-part2\Game.cpp -o CMakeFiles\PART_2_EXE.dir\Game.cpp.s
+	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\omarm\mtm-ex2\mtm-ex2-part2\Game.cpp -o CMakeFiles\PART_2_EXE.dir\Game.cpp.s
 
 CMakeFiles/PART_2_EXE.dir/Soldier.cpp.obj: CMakeFiles/PART_2_EXE.dir/flags.make
 CMakeFiles/PART_2_EXE.dir/Soldier.cpp.obj: ../Soldier.cpp
 CMakeFiles/PART_2_EXE.dir/Soldier.cpp.obj: CMakeFiles/PART_2_EXE.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\User\OneDrive\Technion\SemesterB\mtm\hw\hw2\mtm-ex2\Part2\mtm-ex2-part2\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/PART_2_EXE.dir/Soldier.cpp.obj"
-	C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PART_2_EXE.dir/Soldier.cpp.obj -MF CMakeFiles\PART_2_EXE.dir\Soldier.cpp.obj.d -o CMakeFiles\PART_2_EXE.dir\Soldier.cpp.obj -c C:\Users\User\OneDrive\Technion\SemesterB\mtm\hw\hw2\mtm-ex2\Part2\mtm-ex2-part2\Soldier.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\omarm\mtm-ex2\mtm-ex2-part2\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/PART_2_EXE.dir/Soldier.cpp.obj"
+	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PART_2_EXE.dir/Soldier.cpp.obj -MF CMakeFiles\PART_2_EXE.dir\Soldier.cpp.obj.d -o CMakeFiles\PART_2_EXE.dir\Soldier.cpp.obj -c C:\Users\omarm\mtm-ex2\mtm-ex2-part2\Soldier.cpp
 
 CMakeFiles/PART_2_EXE.dir/Soldier.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PART_2_EXE.dir/Soldier.cpp.i"
-	C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\User\OneDrive\Technion\SemesterB\mtm\hw\hw2\mtm-ex2\Part2\mtm-ex2-part2\Soldier.cpp > CMakeFiles\PART_2_EXE.dir\Soldier.cpp.i
+	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\omarm\mtm-ex2\mtm-ex2-part2\Soldier.cpp > CMakeFiles\PART_2_EXE.dir\Soldier.cpp.i
 
 CMakeFiles/PART_2_EXE.dir/Soldier.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PART_2_EXE.dir/Soldier.cpp.s"
-	C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\User\OneDrive\Technion\SemesterB\mtm\hw\hw2\mtm-ex2\Part2\mtm-ex2-part2\Soldier.cpp -o CMakeFiles\PART_2_EXE.dir\Soldier.cpp.s
+	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\omarm\mtm-ex2\mtm-ex2-part2\Soldier.cpp -o CMakeFiles\PART_2_EXE.dir\Soldier.cpp.s
 
 CMakeFiles/PART_2_EXE.dir/Medic.cpp.obj: CMakeFiles/PART_2_EXE.dir/flags.make
 CMakeFiles/PART_2_EXE.dir/Medic.cpp.obj: ../Medic.cpp
 CMakeFiles/PART_2_EXE.dir/Medic.cpp.obj: CMakeFiles/PART_2_EXE.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\User\OneDrive\Technion\SemesterB\mtm\hw\hw2\mtm-ex2\Part2\mtm-ex2-part2\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/PART_2_EXE.dir/Medic.cpp.obj"
-	C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PART_2_EXE.dir/Medic.cpp.obj -MF CMakeFiles\PART_2_EXE.dir\Medic.cpp.obj.d -o CMakeFiles\PART_2_EXE.dir\Medic.cpp.obj -c C:\Users\User\OneDrive\Technion\SemesterB\mtm\hw\hw2\mtm-ex2\Part2\mtm-ex2-part2\Medic.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\omarm\mtm-ex2\mtm-ex2-part2\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/PART_2_EXE.dir/Medic.cpp.obj"
+	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PART_2_EXE.dir/Medic.cpp.obj -MF CMakeFiles\PART_2_EXE.dir\Medic.cpp.obj.d -o CMakeFiles\PART_2_EXE.dir\Medic.cpp.obj -c C:\Users\omarm\mtm-ex2\mtm-ex2-part2\Medic.cpp
 
 CMakeFiles/PART_2_EXE.dir/Medic.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PART_2_EXE.dir/Medic.cpp.i"
-	C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\User\OneDrive\Technion\SemesterB\mtm\hw\hw2\mtm-ex2\Part2\mtm-ex2-part2\Medic.cpp > CMakeFiles\PART_2_EXE.dir\Medic.cpp.i
+	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\omarm\mtm-ex2\mtm-ex2-part2\Medic.cpp > CMakeFiles\PART_2_EXE.dir\Medic.cpp.i
 
 CMakeFiles/PART_2_EXE.dir/Medic.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PART_2_EXE.dir/Medic.cpp.s"
-	C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\User\OneDrive\Technion\SemesterB\mtm\hw\hw2\mtm-ex2\Part2\mtm-ex2-part2\Medic.cpp -o CMakeFiles\PART_2_EXE.dir\Medic.cpp.s
+	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\omarm\mtm-ex2\mtm-ex2-part2\Medic.cpp -o CMakeFiles\PART_2_EXE.dir\Medic.cpp.s
 
 CMakeFiles/PART_2_EXE.dir/Sniper.cpp.obj: CMakeFiles/PART_2_EXE.dir/flags.make
 CMakeFiles/PART_2_EXE.dir/Sniper.cpp.obj: ../Sniper.cpp
 CMakeFiles/PART_2_EXE.dir/Sniper.cpp.obj: CMakeFiles/PART_2_EXE.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\User\OneDrive\Technion\SemesterB\mtm\hw\hw2\mtm-ex2\Part2\mtm-ex2-part2\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/PART_2_EXE.dir/Sniper.cpp.obj"
-	C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PART_2_EXE.dir/Sniper.cpp.obj -MF CMakeFiles\PART_2_EXE.dir\Sniper.cpp.obj.d -o CMakeFiles\PART_2_EXE.dir\Sniper.cpp.obj -c C:\Users\User\OneDrive\Technion\SemesterB\mtm\hw\hw2\mtm-ex2\Part2\mtm-ex2-part2\Sniper.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\omarm\mtm-ex2\mtm-ex2-part2\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/PART_2_EXE.dir/Sniper.cpp.obj"
+	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PART_2_EXE.dir/Sniper.cpp.obj -MF CMakeFiles\PART_2_EXE.dir\Sniper.cpp.obj.d -o CMakeFiles\PART_2_EXE.dir\Sniper.cpp.obj -c C:\Users\omarm\mtm-ex2\mtm-ex2-part2\Sniper.cpp
 
 CMakeFiles/PART_2_EXE.dir/Sniper.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PART_2_EXE.dir/Sniper.cpp.i"
-	C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\User\OneDrive\Technion\SemesterB\mtm\hw\hw2\mtm-ex2\Part2\mtm-ex2-part2\Sniper.cpp > CMakeFiles\PART_2_EXE.dir\Sniper.cpp.i
+	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\omarm\mtm-ex2\mtm-ex2-part2\Sniper.cpp > CMakeFiles\PART_2_EXE.dir\Sniper.cpp.i
 
 CMakeFiles/PART_2_EXE.dir/Sniper.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PART_2_EXE.dir/Sniper.cpp.s"
-	C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\User\OneDrive\Technion\SemesterB\mtm\hw\hw2\mtm-ex2\Part2\mtm-ex2-part2\Sniper.cpp -o CMakeFiles\PART_2_EXE.dir\Sniper.cpp.s
+	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\omarm\mtm-ex2\mtm-ex2-part2\Sniper.cpp -o CMakeFiles\PART_2_EXE.dir\Sniper.cpp.s
 
 # Object files for target PART_2_EXE
 PART_2_EXE_OBJECTS = \
@@ -190,7 +190,7 @@ PART_2_EXE.exe: CMakeFiles/PART_2_EXE.dir/build.make
 PART_2_EXE.exe: CMakeFiles/PART_2_EXE.dir/linklibs.rsp
 PART_2_EXE.exe: CMakeFiles/PART_2_EXE.dir/objects1.rsp
 PART_2_EXE.exe: CMakeFiles/PART_2_EXE.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\User\OneDrive\Technion\SemesterB\mtm\hw\hw2\mtm-ex2\Part2\mtm-ex2-part2\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable PART_2_EXE.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\omarm\mtm-ex2\mtm-ex2-part2\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable PART_2_EXE.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\PART_2_EXE.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -202,6 +202,6 @@ CMakeFiles/PART_2_EXE.dir/clean:
 .PHONY : CMakeFiles/PART_2_EXE.dir/clean
 
 CMakeFiles/PART_2_EXE.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\User\OneDrive\Technion\SemesterB\mtm\hw\hw2\mtm-ex2\Part2\mtm-ex2-part2 C:\Users\User\OneDrive\Technion\SemesterB\mtm\hw\hw2\mtm-ex2\Part2\mtm-ex2-part2 C:\Users\User\OneDrive\Technion\SemesterB\mtm\hw\hw2\mtm-ex2\Part2\mtm-ex2-part2\build C:\Users\User\OneDrive\Technion\SemesterB\mtm\hw\hw2\mtm-ex2\Part2\mtm-ex2-part2\build C:\Users\User\OneDrive\Technion\SemesterB\mtm\hw\hw2\mtm-ex2\Part2\mtm-ex2-part2\build\CMakeFiles\PART_2_EXE.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\omarm\mtm-ex2\mtm-ex2-part2 C:\Users\omarm\mtm-ex2\mtm-ex2-part2 C:\Users\omarm\mtm-ex2\mtm-ex2-part2\build C:\Users\omarm\mtm-ex2\mtm-ex2-part2\build C:\Users\omarm\mtm-ex2\mtm-ex2-part2\build\CMakeFiles\PART_2_EXE.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/PART_2_EXE.dir/depend
 

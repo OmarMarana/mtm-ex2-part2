@@ -1,3 +1,3 @@
 "C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\PART_2_EXE.dir/objects.a
 C:\TDM-GCC-64\bin\ar.exe cr CMakeFiles\PART_2_EXE.dir/objects.a @CMakeFiles\PART_2_EXE.dir\objects1.rsp
-C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe -g -Wl,--whole-archive CMakeFiles\PART_2_EXE.dir/objects.a -Wl,--no-whole-archive -o PART_2_EXE.exe -Wl,--out-implib,libPART_2_EXE.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\PART_2_EXE.dir\linklibs.rsp
+C:\TDM-GCC-64\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\PART_2_EXE.dir/objects.a -Wl,--no-whole-archive -o PART_2_EXE.exe -Wl,--out-implib,libPART_2_EXE.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\PART_2_EXE.dir\linklibs.rsp

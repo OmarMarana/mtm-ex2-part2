@@ -238,8 +238,8 @@ namespace mtm
     std::shared_ptr<Character> Game::makeCharacter(CharacterType type, Team team, units_t health,
             units_t ammo, units_t range, units_t power)
     {
-        if(health <= 0 || range < 0 || team < 0 || type < 0 ||
-           type >= CHARACTER_ENUM_RANGE || team >= TEAM_ENUM_RANGE)
+        if(health <= 0 || range < 0 || team < 0 || type < 0 || ammo < 0 ||
+			power < 0 || type >= CHARACTER_ENUM_RANGE || team >= TEAM_ENUM_RANGE)
         {
             throw IllegalArgument();
         }
@@ -281,7 +281,7 @@ namespace mtm
         }
     }
 
-    void Game::checkCellEmpty(std::vector<std::vector<std::shared_ptr<Character>>> &game_board,
+    void Game::checkCellEmpty(const std::vector<std::vector<std::shared_ptr<Character>>> &game_board,
                               const GridPoint &src_coordinates)
     {
         if(game_board[src_coordinates.row][src_coordinates.col] == NULL)
@@ -290,7 +290,7 @@ namespace mtm
         }
     }
 
-    void Game::checkCellOccupied(std::vector<std::vector<std::shared_ptr<Character>>> &game_board,
+    void Game::checkCellOccupied(const std::vector<std::vector<std::shared_ptr<Character>>> &game_board,
                                  const GridPoint &location)
     {
         if(game_board[location.row][location.col] != NULL)
@@ -298,31 +298,6 @@ namespace mtm
             throw CellOccupied();
         }
     }
-
-
-
-
-
-    
-    // void print_board(vector<vector<shared_ptr<Character>>> &game_board)
-    // {
-    //     cout<<endl;
-    //     for (int x = 0; x < game_board.size(); x++)
-    //     {
-    //         for (int y = 0; y < game_board[x].size(); y++)
-    //         {
-    //             if(game_board[x][y] == nullptr)
-    //             {
-    //                 cout << "NULL ";
-    //             }
-    //             else
-    //             {
-    //                 cout << *game_board[x][y] << " ";
-    //             }
-    //         }
-    //         cout << endl;
-    //     }
-    // }
 
 
 }

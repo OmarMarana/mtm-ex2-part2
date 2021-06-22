@@ -35,9 +35,9 @@ namespace mtm
 
 
         private:
-            int hit_count =0;      // check if this works
-            Sniper(const Sniper& other); //copy constructor
-            /* private functions for logics for sniper class...*/
+            int hit_count =0;      
+            Sniper(const Sniper& other); 
+            
     };
 }
 
